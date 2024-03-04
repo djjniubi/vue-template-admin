@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" width="100%" height="100%" viewBox="0 0 1400 800">
+    
+    <path id="svg_1" d="m285.8322,276.59054l62.43735,0l19.29362,-58.02975l19.29363,58.02975l62.43733,0l-50.51278,35.86395l19.29462,58.02975l-50.5128,-35.86493l-50.51279,35.86493l19.29462,-58.02975l-50.5128,-35.86395z" stroke="#000" fill="#a2b3ff">
+        <animateMotion path="M 0 0 L 40 20 Z" dur="5s" repeatCount="indefinite"/>
+    </path>
+    <path id="svg_1" d="m26.8322,79.59054l62.43735,0l19.29362,-58.02975l19.29363,58.02975l62.43733,0l-50.51278,35.86395l19.29462,58.02975l-50.5128,-35.86493l-50.51279,35.86493l19.29462,-58.02975l-50.5128,-35.86395z" stroke="#000" fill="#a2b3ff">
+        <animateMotion path="M 140 390 L 180 360 L 140 390" dur="20s" begin="0s" repeatCount="indefinite"/>
+        <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate" values="0 140 390; -60 140 390; 0 140 390" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite"/>
+    </path>
+  <path id="svg_2" d="m434.82787,108.57609l61.05483,0l18.86641,-61.05457l18.86642,61.05457l61.05482,0l-49.39431,37.73337l18.86739,61.05457l-49.39433,-37.7344l-49.39432,37.7344l18.86739,-61.05457l-49.39432,-37.73337z" stroke="#000" fill="#85FFBD">
+      <animateMotion path="M 140 390 L 180 360 L 140 390" dur="20s" begin="0s" repeatCount="indefinite"/>
+        <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate" values="0 140 390; -60 140 390; 0 140 390" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite"/> 
+  </path>
+  <path id="svg_3" d="m388.60342,245.65063l0.56913,0l0.17587,-0.54067l0.17587,0.54067l0.56913,0l-0.46044,0.33415l0.17588,0.54067l-0.46044,-0.33416l-0.46044,0.33416l0.17588,-0.54067l-0.46044,-0.33415z" stroke="#000" fill="#3054EB">
+    
+  </path>
+  <path id="svg_4" d="m71.30028,304.8278l69.4762,0l21.46868,-66.76905l21.46869,66.76905l69.47618,0l-56.20732,41.26507l21.46979,66.76905l-56.20734,-41.26619l-56.20733,41.26619l21.4698,-66.76905l-56.20734,-41.26507z" stroke="#000" fill="#3054EB"/>
+  <path id="svg_5" d="m418.37508,350.57701l74.28839,0l22.95569,-63.15991l22.9557,63.15991l74.28838,0l-60.10046,39.03453l22.95687,63.15991l-60.10049,-39.03559l-60.10048,39.03559l22.95688,-63.15991l-60.10048,-39.03453z" stroke="#000" fill="#81c995">
+   <animateMotion path="M 800 -200 L 800 -300 L 800 -200" dur="20s" begin="0s" repeatCount="indefinite"/>
+        <animateTransform attributeType="XML" attributeName="transform" begin="0s" dur="30s" type="rotate" values="0 210 530 ; -30 210 530 ; 0 210 530" keyTimes="0 ; 0.5 ; 1" repeatCount="indefinite"/>
+  </path>
+  <path id="svg_6" d="m692.50284,331.4953l36.09154,0l11.15256,-51.12944l11.15257,51.12944l36.09153,0l-29.19862,31.59937l11.15314,51.12944l-29.19863,-31.60023l-29.19862,31.60023l11.15314,-51.12944l-29.19863,-31.59937z" stroke="#000" fill="#81c995"/>
+  <path id="svg_7" d="m705.12314,191.15175l21.95567,0l6.78447,-23.76016l6.78447,23.76016l21.95567,0l-17.76248,14.68442l6.78482,23.76016l-17.76249,-14.68482l-17.76248,14.68482l6.78482,-23.76016l-17.76248,-14.68442z" stroke="#000" fill="#81c995"/>
+
+</svg>

@@ -1,0 +1,14 @@
+@mixin flex-layout($direction: row, $align: stretch, $justify: stretch, $isConstraint: false) {
+	display: flex;
+	flex-direction: $direction;
+
+	@if $isConstraint == false {
+		justify-content: $justify;
+		align-items: $align;
+	}
+
+	@if $isConstraint == true {
+		justify-content: $justify !important;
+		align-items: $align !important;
+	}
+}

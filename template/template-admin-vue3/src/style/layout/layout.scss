@@ -1,0 +1,87 @@
+// flex 布局
+.flex1 {
+	flex: 1;
+}
+
+.flex2 {
+	flex: 2;
+}
+
+// 横向对齐
+
+.flex-row-top-start {
+	@include flex-layout(row, flex-start, flex-start);
+}
+
+.flex-row-top-center {
+	@include flex-layout(row, flex-start, center);
+}
+
+.flex-row-top-end {
+	@include flex-layout(row, flex-start, flex-end);
+}
+
+.flex-row-center-start {
+	@include flex-layout(row, center, flex-start);
+}
+
+.flex-row-center-center {
+	@include flex-layout(row, center, center);
+}
+
+.flex-row-center-end {
+	@include flex-layout(row, center, flex-end);
+}
+
+.flex-row-bottom-start {
+	@include flex-layout(row, flex-end, flex-start);
+}
+
+.flex-row-bottom-center {
+	@include flex-layout(row, flex-end, center);
+}
+
+.flex-row-bottom-end {
+	@include flex-layout(row, flex-end, flex-end);
+}
+
+.flex-row-center-between {
+	@include flex-layout(row, center, space-between);
+}
+
+// 外边距/内边距
+@for $i from 0 through 100 {
+	.mt-#{$i} {
+		margin-top: #{$i}px;
+	}
+
+	.mr-#{$i} {
+		margin-right: #{$i}px;
+	}
+
+	.mb-#{$i} {
+		margin-bottom: #{$i}px;
+	}
+	.ml-#{$i} {
+		margin-left: #{$i}px;
+	}
+	.pt-#{$i} {
+		padding-top: #{$i}px;
+	}
+	.pr-#{$i} {
+		padding-right: #{$i}px;
+	}
+	.pb-#{$i} {
+		padding-bottom: #{$i}px;
+	}
+	.pl-#{$i} {
+		padding-left: #{$i}px;
+	}
+}
+
+// 圆角
+@for $i from 0 through 20 {
+	.round-#{$i} {
+		border-radius: #{$i}px;
+	}
+}

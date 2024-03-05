@@ -1,12 +1,12 @@
 <!--
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-22 16:51:46
- * @FilePath: \vue3-template\src\layouts\components\Menu\NavMenu.vue
+ * @FilePath: \vue-template-admin\template\template-admin-vue3\src\layouts\components\Menu\NavMenu.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-28 17:12:33
+ * @LastEditTime: 2024-03-04 14:00:24
 -->
 <template>
-	<el-sub-menu index="1">
+	<!-- <el-sub-menu index="1">
 		<template #title>
 			<el-icon><location /></el-icon>
 			<span>Navigator One</span>
@@ -51,17 +51,31 @@
 	<el-menu-item index="8" :style="{ margin: globalStore.isCollapse ? '0px' : '15px' }">
 		<el-icon><setting /></el-icon>
 		<template #title>Navigator Four</template>
-	</el-menu-item>
-	<!-- <template v-for="item in 10" ::key="item">
-		<el-sub-menu>
-
+	</el-menu-item> -->
+	<template v-for="item in menuList" :key="item.path">
+		<el-sub-menu v-if="item.children?.length" :index="item.path">
+			<template #title>
+			<el-icon><location /></el-icon>
+			<span>{{ item.meta.title }}</span>
+		</template>
+		<NavMenu :menu-list="item.children"/>
         </el-sub-menu>
-	</template> -->
+		<el-menu-item v-else :index="item.path" :style="{ margin: globalStore.isCollapse ? '0px' : '15px' }" @click="handleClickMenu(item) ">
+		<el-icon><setting /></el-icon>
+		<template #title>{{ item.meta.title }}</template>
+	</el-menu-item>
+	</template>
 </template>
 
 <script setup lang="ts">
+import {useRouter} from "vue-router"
 import { userGlobalStore } from '@/store/modules/global';
+defineProps<{menuList:Menu.MenuOptions[]}>()
+const router = useRouter();
 const globalStore = userGlobalStore();
+const handleClickMenu=(subItem:Menu.MenuOptions)=>{
+	return  router.push(subItem.path)
+}
 </script>
 <style lang="scss" scoped>
 .el-menu-item {

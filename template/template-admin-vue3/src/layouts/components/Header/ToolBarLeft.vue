@@ -1,20 +1,22 @@
 <!--
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-26 09:52:40
- * @FilePath: \vue3-template\src\layouts\components\Header\ToolBarLeft.vue
+ * @FilePath: \template-admin-vue3\src\layouts\components\Header\ToolBarLeft.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-27 16:16:56
+ * @LastEditTime: 2024-03-04 16:29:37
 -->
 <template>
-	<div>
+	<div class="flex-row-center-center">
 		<el-icon class="collapse-icon" @click="changeCollapse" size="22">
 			<component :is="globalStore.isCollapse ? 'expand' : 'fold'"></component>
 		</el-icon>
+		<Breadcrumb />
 	</div>
 </template>
 
 <script setup lang="ts">
 import { userGlobalStore } from '@/store/modules/global';
+import Breadcrumb from './components/Breadcrumb.vue';
 const globalStore = userGlobalStore();
 const changeCollapse = () => globalStore.setGlobalStoreConfig('isCollapse', !globalStore.isCollapse);
 </script>

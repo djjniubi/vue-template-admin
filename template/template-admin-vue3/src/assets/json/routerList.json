@@ -12,6 +12,60 @@
                 "isAffix": true,
                 "isKeepAlive": true
             }
+        },
+        {
+            "path": "/dataScreen",
+            "name": "dataScreen",
+            "component": "/dataScreen/index",
+            "meta": {
+                "icon": "HomeFilled",
+                "title": "数据大屏",
+                "isHide": false,
+                "isFull": true,
+                "isAffix": true,
+                "isKeepAlive": true
+            }
+        },
+        {
+            "path": "/dataCS",
+            "name": "dataCS",
+            "component": "/dataCS/cs1",
+            "meta": {
+                "icon": "HomeFilled",
+                "title": "多级菜单",
+                "isHide": false,
+                "isFull": false,
+                "isAffix": true,
+                "isKeepAlive": true
+            },
+            "children": [
+                {
+                    "path": "/dataCS/cs1",
+                    "name": "cs1",
+                    "component": "/dataCS/cs1/index",
+                    "meta": {
+                        "icon": "HomeFilled",
+                        "title": "菜单1",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": true,
+                        "isKeepAlive": true
+                    }
+                },
+                {
+                    "path": "/dataCS/cs2",
+                    "name": "cs2",
+                    "component": "/dataCS/cs2/index",
+                    "meta": {
+                        "icon": "HomeFilled",
+                        "title": "菜单2",
+                        "isHide": false,
+                        "isFull": false,
+                        "isAffix": true,
+                        "isKeepAlive": true
+                    }
+                }
+            ]
         }
     ]
 }

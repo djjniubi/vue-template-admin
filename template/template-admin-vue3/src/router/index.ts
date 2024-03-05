@@ -1,14 +1,14 @@
 /*
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-16 23:09:26
- * @FilePath: \vue3-template\src\router\index.ts
+ * @FilePath: \vue-template-admin\template\template-admin-vue3\src\router\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-22 16:47:28
+ * @LastEditTime: 2024-03-04 11:45:43
  */
 import { createRouter, createWebHistory } from 'vue-router';
 import { staticRouter, errorRouter } from './modules/staticRouter';
 import { userStores } from '@/store/modules/user';
-import { permissionStore } from '@/store/modules/permission';
+import { userPermissionStore } from '@/store/modules/permission';
 import { initDynamicRouter } from './modules/dynamicRoute';
 const router = createRouter({
 	history: createWebHistory(),
@@ -18,7 +18,7 @@ const router = createRouter({
 
 router.beforeEach(async (to, from, next) => {
 	const userStore = userStores();
-	const authStore = permissionStore();
+	const authStore = userPermissionStore();
 	if (to.path.toLocaleLowerCase() === '/login') {
 		if (userStore.token) return next(from.fullPath);
 		return next();
@@ -26,7 +26,7 @@ router.beforeEach(async (to, from, next) => {
 	//如果没有登录直接跳转登陆页
 	if (!userStore.token) return next({ path: '/login', replace: true });
 	if (!authStore.routeMenuList.length) {
-		initDynamicRouter();
+		await initDynamicRouter();
 		return next({ ...to, replace: true });
 	}
 

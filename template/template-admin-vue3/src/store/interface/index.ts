@@ -1,9 +1,9 @@
 /*
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-22 11:15:50
- * @FilePath: \vue3-template\src\store\interface\index.ts
+ * @FilePath: \template-admin-vue3\src\store\interface\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-28 17:16:11
+ * @LastEditTime: 2024-03-20 01:43:30
  */
 
 export type LayoutType = 'vertical' | 'classical';
@@ -12,6 +12,8 @@ export interface UserState {
 	token: string;
 	userInfo: {
 		name: string;
+		username?: string;
+		roles?: string;
 	};
 }
 
@@ -20,6 +22,9 @@ export interface UserState {
 export interface PermissionState {
 	routeName: string;
 	routeMenuList: Menu.MenuOptions[];
+	authButtonList: {
+		[key: string]: string[];
+	};
 }
 
 /**globalInterface */

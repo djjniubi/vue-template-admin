@@ -1,9 +1,9 @@
 <!--
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-16 23:35:24
- * @FilePath: \vue3-template\src\views\login\index.vue
+ * @FilePath: \template-admin-vue3\src\views\login\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-22 14:46:20
+ * @LastEditTime: 2024-03-21 00:28:39
 -->
 <template>
 	<div class="login-container">
@@ -45,6 +45,8 @@ import { ref, reactive } from 'vue';
 import { userStores } from '@/store/modules/user';
 import { useRouter } from 'vue-router';
 import type { ElForm } from 'element-plus';
+import { loginApi, getUserInfo } from '@/api/modules/login';
+import { initDynamicRouter } from '@/router/modules/dynamicRoute';
 type FormInstace = InstanceType<typeof ElForm>;
 const loading = ref(false);
 const loginForm = ref<FormInstace>();
@@ -69,25 +71,25 @@ const login = (e: FormInstace | undefined) => {
 	e.validate(async (valid) => {
 		if (!valid) return;
 		loading.value = true;
-		console.log('登录', valid);
-		if (formModel.username !== 'admin' && formModel.password !== '123456') {
-			ElMessage({
-				message: '账号或密码错误',
-				type: 'error',
-			});
+		try {
+			const { data } = await loginApi(formModel);
+			userStore.setToken(data.access_token);
+			await initDynamicRouter();
+			const userInfo = await getUserInfo();
+			console.log(userInfo.roles);
+
+			setTimeout(() => {
+				ElMessage({
+					message: '登录成功',
+					type: 'success',
+				});
+				userStore.setUserInfo({ ...userInfo.data });
+				loading.value = false;
+				router.push('/home/index');
+			}, 800);
+		} finally {
 			loading.value = false;
-			return;
 		}
-		setTimeout(() => {
-			ElMessage({
-				message: '登录成功',
-				type: 'success',
-			});
-			userStore.setToken('asd123456');
-			userStore.setUserInfo({ username: formModel.username });
-			loading.value = false;
-			router.push('/home/index');
-		}, 800);
 	});
 };
 </script>

@@ -3,7 +3,7 @@
  * @Date: 2024-02-26 10:43:09
  * @FilePath: \template-admin-vue3\src\layouts\components\Main\Main.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-05 14:47:02
+ * @LastEditTime: 2024-03-25 18:33:21
 -->
 <template>
 	<el-main>
@@ -17,13 +17,13 @@
 	</el-main>
 </template>
 <script setup lang="ts">
-import { ref, onBeforeUnmount } from 'vue';
+import { onBeforeUnmount } from 'vue';
 import { storeToRefs } from 'pinia';
 import { userGlobalStore } from '@/store/modules/global';
 const global = userGlobalStore();
 const { isCollapse } = storeToRefs(global);
 //监听视口变化，控制左侧菜单折叠
-const windowWidth = ref(0);
+// const windowWidth = ref(0);
 const listeningWindow = () => {
 	if (!isCollapse.value && document.body.clientWidth < 1200) global.setGlobalStoreConfig('isCollapse', true);
 	if (isCollapse.value && document.body.clientWidth > 1200) global.setGlobalStoreConfig('isCollapse', false);

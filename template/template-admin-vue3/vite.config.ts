@@ -1,21 +1,21 @@
 /*
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-01-12 11:27:47
- * @FilePath: \vue3-template\vite.config.ts
+ * @FilePath: \template-admin-vue3\vite.config.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-23 10:41:28
+ * @LastEditTime: 2024-03-19 22:05:35
  */
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, loadEnv, ConfigEnv, UserConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { resolve } from 'path';
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ command, mode }: ConfigEnv): UserConfig => {
 	const root = process.cwd();
 	const viteEnv = loadEnv(mode, root);
-	console.log('env', viteEnv, mode, command);
+	console.log('env', viteEnv.VITE_API_URL, mode, command);
 	return {
 		plugins: [vue(), AutoImport({ resolvers: [ElementPlusResolver()] }), Components({ resolvers: [ElementPlusResolver()] })],
 		resolve: {
@@ -33,6 +33,19 @@ export default defineConfig(({ command, mode }) => {
 		// 		}
 		// 	}
 		// },
+		server: {
+			open: true,
+			host: '0.0.0.0',
+			port: 8858,
+			cors: true,
+			proxy: {
+				'/api': {
+					target: viteEnv.VITE_API_URL,
+					changeOrigin: true,
+					rewrite: (path) => path.replace(/^\/api/, ''),
+				},
+			},
+		},
 		build: {},
 	};
 });

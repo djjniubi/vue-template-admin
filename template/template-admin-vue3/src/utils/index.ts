@@ -13,7 +13,7 @@
  */
 
 export function getFlatMenuList(menuList: Menu.MenuOptions[], isFilter: boolean = false): Menu.MenuOptions[] | any[] {
-	let newMenuList: Menu.MenuOptions[] = JSON.parse(JSON.stringify(menuList));
+	const newMenuList: Menu.MenuOptions[] = JSON.parse(JSON.stringify(menuList));
 	if (isFilter) {
 		return newMenuList.filter((item) => {
 			item.children?.length && (item.children = getFlatMenuList(item.children));

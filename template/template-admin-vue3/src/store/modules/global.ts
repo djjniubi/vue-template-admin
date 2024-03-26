@@ -1,9 +1,9 @@
 /*
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-26 09:56:57
- * @FilePath: \vue3-template\src\store\modules\global.ts
+ * @FilePath: \template-admin-vue3\src\store\modules\global.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-28 17:23:18
+ * @LastEditTime: 2024-03-26 23:40:24
  */
 import { defineStore } from 'pinia';
 import { GlobalState } from '../interface/index';
@@ -20,6 +20,12 @@ export const userGlobalStore = defineStore({
 		isDark: false,
 		//当前布局
 		layout: 'vertical',
+		//全局颜色
+		primary: '#409eff',
+		//灰色模式
+		isGray: false,
+		//色弱模式
+		isColorWeakness: false,
 	}),
 	actions: {
 		setGlobalStoreConfig(...args: ObjeKeyValuArr<GlobalState>) {

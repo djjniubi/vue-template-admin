@@ -3,7 +3,7 @@
  * @Date: 2024-02-22 11:15:50
  * @FilePath: \template-admin-vue3\src\store\interface\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-20 01:43:30
+ * @LastEditTime: 2024-03-26 23:39:31
  */
 
 export type LayoutType = 'vertical' | 'classical';
@@ -33,4 +33,7 @@ export interface GlobalState {
 	isCollapse: boolean;
 	isDark: boolean;
 	layout: LayoutType;
+	primary: string;
+	isColorWeakness: boolean;
+	isGray: boolean;
 }

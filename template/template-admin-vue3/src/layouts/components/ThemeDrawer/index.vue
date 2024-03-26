@@ -1,9 +1,9 @@
 <!--
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-02-28 10:33:28
- * @FilePath: \vue3-template\src\layouts\components\ThemeDrawer\index.vue
+ * @FilePath: \template-admin-vue3\src\layouts\components\ThemeDrawer\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-28 16:51:15
+ * @LastEditTime: 2024-03-26 23:51:09
 -->
 <template>
 	<el-drawer v-model="drawer" size="280">
@@ -33,19 +33,39 @@
 				</div>
 			</el-tooltip>
 		</div>
+		<el-divider>
+			<el-icon><MagicStick /></el-icon>
+			主题颜色
+		</el-divider>
+		<div class="theme-item">
+			<span>主题颜色</span>
+			<el-color-picker v-model="globalStore.primary" :predefine="colorList" @change="changePrimary" />
+		</div>
+		<div class="theme-item">
+			<span>灰色模式</span>
+			<el-switch v-model="globalStore.isGray" @change="grayAndWeakColor('gray', !!$event)" />
+		</div>
+		<div class="theme-item mb40">
+			<span>色弱模式</span>
+			<el-switch v-model="globalStore.isColorWeakness" @change="grayAndWeakColor('colorWeakness', !!$event)" />
+		</div>
 	</el-drawer>
 </template>
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import mittBus from '@/utils/mittBus';
 import { userGlobalStore } from '@/store/modules/global';
+import { useTheme } from '@/hooks/theme';
 const globalStore = userGlobalStore();
 const layout = computed(() => globalStore.layout);
 const drawer = ref(false);
 mittBus.on('openDrawer', () => (drawer.value = true));
+const { changePrimary, grayAndWeakColor } = useTheme();
 const setLayout = (item: string) => {
 	globalStore.setGlobalStoreConfig('layout', item);
 };
+// 预定义主题颜色
+const colorList = ['#daa96e', '#0c819f', '#409eff', '#27ae60', '#ff5c93', '#e74c3c', '#fd726d', '#f39c12', '#9b59b6'];
 </script>
 <style lang="scss" scoped>
 @import './index.scss';

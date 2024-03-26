@@ -1,0 +1,16 @@
+{
+    "data": {
+        "admin": [
+            "add",
+            "delete",
+            "edit",
+            "import",
+            "export"
+        ],
+        "user": [
+            "edit",
+            "import",
+            "export"
+        ]
+    }
+}

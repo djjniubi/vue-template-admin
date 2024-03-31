@@ -3,7 +3,7 @@
  * @Date: 2024-02-22 15:29:00
  * @FilePath: \template-admin-vue3\src\store\modules\permission.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-20 00:09:46
+ * @LastEditTime: 2024-03-30 18:54:37
  */
 import { defineStore } from 'pinia';
 import { PermissionState } from '../interface/index';
@@ -32,7 +32,7 @@ export const userPermissionStore = defineStore({
 		//获取路由数据
 		async getRouterList() {
 			const { data } = await menuApiList();
-			this.routeMenuList = data;
+			this.routeMenuList = data as any;
 		},
 		//获取按钮权限
 		getButtonList() {

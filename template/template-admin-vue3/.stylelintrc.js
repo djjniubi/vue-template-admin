@@ -1,9 +1,9 @@
 /*
  * @Author: 前端菜鸟--邓建军
  * @Date: 2024-01-12 15:50:44
- * @FilePath: \vue3-template\.stylelintrc.js
+ * @FilePath: \template-admin-vue3\.stylelintrc.js
  * @LastEditors: mydjj
- * @LastEditTime: 2024-02-28 10:17:18
+ * @LastEditTime: 2024-03-30 00:29:52
  */
 module.exports = {
 	extends: ['stylelint-config-standard-scss', 'stylelint-config-recommended-vue/scss', 'stylelint-config-standard'],
@@ -26,6 +26,13 @@ module.exports = {
 		],
 		"scss/at-import-partial-extension": null,
 		"import-notation": "string",
-		"font-family-no-missing-generic-family-keyword": null
+		"font-family-no-missing-generic-family-keyword": null,
+		"selector-class-pattern": null,
+		"selector-pseudo-class-no-unknown": [
+			true,
+			{
+				ignorePseudoClasses: ["global", "v-deep", "deep"]
+			}
+		]
 	},
 }

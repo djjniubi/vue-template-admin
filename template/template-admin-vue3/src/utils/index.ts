@@ -3,7 +3,7 @@
  * @Date: 2024-03-04 10:45:09
  * @FilePath: \template-admin-vue3\src\utils\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-05 09:20:32
+ * @LastEditTime: 2024-03-30 18:35:42
  */
 /**
  * @description 扁平化菜单
@@ -16,7 +16,7 @@ export function getFlatMenuList(menuList: Menu.MenuOptions[], isFilter: boolean 
 	const newMenuList: Menu.MenuOptions[] = JSON.parse(JSON.stringify(menuList));
 	if (isFilter) {
 		return newMenuList.filter((item) => {
-			item.children?.length && (item.children = getFlatMenuList(item.children));
+			item.children?.length && (item.children = getFlatMenuList(item.children, true));
 			return !item.meta?.isHide;
 		});
 	} else {
@@ -31,7 +31,7 @@ export function getFlatMenuList(menuList: Menu.MenuOptions[], isFilter: boolean 
  * @param {Object} 处理后的数据
  */
 export function getBreadcrumb(menuList: Menu.MenuOptions[], parentLevel = [], newData: { [key: string]: any } = {}) {
-	const newMenuList = JSON.parse(JSON.stringify(menuList));
+	const newMenuList = getFlatMenuList(menuList, true);
 	for (const item of newMenuList) {
 		newData[item.path] = [...parentLevel, item];
 		if (item.children) getBreadcrumb(item.children, newData[item.path], newData);

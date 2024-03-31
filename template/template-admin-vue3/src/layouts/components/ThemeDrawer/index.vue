@@ -3,7 +3,7 @@
  * @Date: 2024-02-28 10:33:28
  * @FilePath: \template-admin-vue3\src\layouts\components\ThemeDrawer\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-26 23:51:09
+ * @LastEditTime: 2024-03-31 00:29:14
 -->
 <template>
 	<el-drawer v-model="drawer" size="280">
@@ -48,6 +48,30 @@
 		<div class="theme-item mb40">
 			<span>色弱模式</span>
 			<el-switch v-model="globalStore.isColorWeakness" @change="grayAndWeakColor('colorWeakness', !!$event)" />
+		</div>
+		<el-divider>
+			<el-icon><Setting /></el-icon>
+			界面设置
+		</el-divider>
+		<div class="theme-item mb40">
+			<span>折叠菜单</span>
+			<el-switch v-model="globalStore.isCollapse" />
+		</div>
+		<div class="theme-item mb40">
+			<span>面包屑</span>
+			<el-switch v-model="globalStore.isBreadcrumb" />
+		</div>
+		<div class="theme-item mb40">
+			<span>面包屑图标</span>
+			<el-switch v-model="globalStore.isBreadcrumbIcon" />
+		</div>
+		<div class="theme-item mb40">
+			<span>标签栏</span>
+			<el-switch v-model="globalStore.isTabBar" />
+		</div>
+		<div class="theme-item mb40">
+			<span>标签栏图标</span>
+			<el-switch v-model="globalStore.isTabBarIcon" />
 		</div>
 	</el-drawer>
 </template>

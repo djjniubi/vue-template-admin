@@ -3,7 +3,7 @@
  * @Date: 2024-02-26 09:56:57
  * @FilePath: \template-admin-vue3\src\store\modules\global.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-26 23:40:24
+ * @LastEditTime: 2024-03-31 00:23:20
  */
 import { defineStore } from 'pinia';
 import { GlobalState } from '../interface/index';
@@ -26,6 +26,14 @@ export const userGlobalStore = defineStore({
 		isGray: false,
 		//色弱模式
 		isColorWeakness: false,
+		//是否显示面包屑导航
+		isBreadcrumb: true,
+		//是否显示面包屑图标
+		isBreadcrumbIcon: true,
+		//是否显示标签栏
+		isTabBar: true,
+		//是否显示标签栏图标
+		isTabBarIcon: true,
 	}),
 	actions: {
 		setGlobalStoreConfig(...args: ObjeKeyValuArr<GlobalState>) {

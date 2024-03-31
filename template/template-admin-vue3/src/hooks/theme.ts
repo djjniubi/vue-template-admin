@@ -3,7 +3,7 @@
  * @Date: 2024-02-26 11:56:06
  * @FilePath: \template-admin-vue3\src\hooks\theme.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-26 23:50:42
+ * @LastEditTime: 2024-03-31 16:12:20
  */
 import { userGlobalStore } from '@/store/modules/global';
 import { getColorDeepen, getColorShallow } from '@/utils/hexToRgb';
@@ -24,7 +24,7 @@ export const useTheme = () => {
 		document.documentElement.style.setProperty('--el-color-primary', val ? val : '#409eff');
 		document.documentElement.style.setProperty('--el-color-primary-dark-2', globalStore.isDark ? `${getColorShallow(val as string, 0.2)}` : `${getColorDeepen(val as string, 0.3)}`);
 		for (let i = 0; i < 9; i++) {
-			const primaryColor = globalStore.isDark ? `${getColorShallow(val as string, i / 10)}` : `${getColorDeepen(val as string, i / 10)}`;
+			const primaryColor = globalStore.isDark ? `${getColorDeepen(val as string, i / 10)}` : `${getColorShallow(val as string, i / 10)}`;
 			document.documentElement.style.setProperty(`--el-color-primary-light-${i}`, primaryColor);
 		}
 		globalStore.setGlobalStoreConfig('primary', val);

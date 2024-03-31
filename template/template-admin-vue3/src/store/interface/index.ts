@@ -3,7 +3,7 @@
  * @Date: 2024-02-22 11:15:50
  * @FilePath: \template-admin-vue3\src\store\interface\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-26 23:39:31
+ * @LastEditTime: 2024-03-31 00:22:04
  */
 
 export type LayoutType = 'vertical' | 'classical';
@@ -27,7 +27,7 @@ export interface PermissionState {
 	};
 }
 
-/**globalInterface */
+/** 全局接口State 属性值 */
 
 export interface GlobalState {
 	isCollapse: boolean;
@@ -36,4 +36,23 @@ export interface GlobalState {
 	primary: string;
 	isColorWeakness: boolean;
 	isGray: boolean;
+	isBreadcrumb: boolean;
+	isBreadcrumbIcon: boolean;
+	isTabBar: boolean;
+	isTabBarIcon: boolean;
+}
+
+// 标签导航栏所需要的属性值
+export interface TabBarProps {
+	icon: string;
+	title: string;
+	path: string;
+	name: string;
+	close: boolean;
+	isKeepAlive: boolean;
+}
+
+// 标签导航栏State
+export interface TabBarState {
+	tabBarList: TabBarProps[];
 }

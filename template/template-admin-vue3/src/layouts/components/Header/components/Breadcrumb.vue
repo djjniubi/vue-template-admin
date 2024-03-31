@@ -3,21 +3,21 @@
  * @Date: 2024-03-04 16:26:44
  * @FilePath: \template-admin-vue3\src\layouts\components\Header\components\Breadcrumb.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-05 11:01:52
+ * @LastEditTime: 2024-03-31 16:00:49
 -->
 <template>
 	<div class="ml-10 breadcrumb-box">
-		<el-breadcrumb separator-icon="ArrowRight">
+		<el-breadcrumb separator="/">
 			<transition-group name="breadcrumb">
 				<el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
 					<div class="breadcrumb-item" v-if="!item.children" @click="breadcrumbClick(item, index)">
-						<el-icon class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
+						<el-icon v-if="globalStore.isBreadcrumbIcon" class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
 						<span>{{ item.meta.title }}</span>
 					</div>
 					<el-dropdown trigger="hover" v-else>
 						<a>
 							<div class="breadcrumb-item">
-								<el-icon class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
+								<el-icon v-if="globalStore.isBreadcrumbIcon" class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
 								<span class="mr-6">{{ item.meta.title }}</span>
 								<el-icon><ArrowDown /></el-icon>
 							</div>
@@ -38,12 +38,15 @@
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { userPermissionStore } from '@/store/modules/permission';
+import { userGlobalStore } from '@/store/modules/global';
+const globalStore = userGlobalStore();
 const permissionStore = userPermissionStore();
 const route = useRoute();
 const router = useRouter();
 const breadcrumbList = computed(() => {
 	return permissionStore.breadcrumbList[route.matched[route.matched.length - 1].path] ?? [];
 });
+
 //
 const breadcrumbClick = (menu: Menu.MenuOptions, index: number) => {
 	if (index !== breadcrumbList.value.length - 1) {

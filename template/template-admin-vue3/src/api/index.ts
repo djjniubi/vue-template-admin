@@ -3,7 +3,7 @@
  * @Date: 2024-03-19 15:56:45
  * @FilePath: \template-admin-vue3\src\api\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-21 00:23:29
+ * @LastEditTime: 2024-03-30 16:41:02
  */
 import axios, { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios';
 import { userStores } from '@/store/modules/user';
@@ -60,7 +60,7 @@ class RequestHttp {
 		return this.http.get(url, { params });
 	}
 	post<T>(url: string, params?: object): Promise<ResultData<T>> {
-		return this.http.post(url, { params });
+		return this.http.post(url, { ...params });
 	}
 	put<T>(url: string, params?: object): Promise<ResultData<T>> {
 		return this.http.put(url, { params });

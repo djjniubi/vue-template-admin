@@ -3,7 +3,7 @@
  * @Date: 2024-02-16 23:35:24
  * @FilePath: \template-admin-vue3\src\views\login\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-21 00:28:39
+ * @LastEditTime: 2024-03-30 16:37:48
 -->
 <template>
 	<div class="login-container">
@@ -73,6 +73,8 @@ const login = (e: FormInstace | undefined) => {
 		loading.value = true;
 		try {
 			const { data } = await loginApi(formModel);
+			console.log(data);
+
 			userStore.setToken(data.access_token);
 			await initDynamicRouter();
 			const userInfo = await getUserInfo();

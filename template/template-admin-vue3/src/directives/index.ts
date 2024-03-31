@@ -3,7 +3,7 @@
  * @Date: 2024-03-18 23:06:30
  * @FilePath: \template-admin-vue3\src\directives\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-21 00:36:47
+ * @LastEditTime: 2024-03-30 18:38:06
  */
 import { userPermissionStore } from '@/store/modules/permission';
 import type { DirectiveBinding } from 'vue';

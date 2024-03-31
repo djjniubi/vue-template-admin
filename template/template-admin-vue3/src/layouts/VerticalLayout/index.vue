@@ -3,7 +3,7 @@
  * @Date: 2024-02-22 09:35:43
  * @FilePath: \template-admin-vue3\src\layouts\VerticalLayout\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-04 14:28:32
+ * @LastEditTime: 2024-03-30 16:27:22
 -->
 <template>
 	<el-container class="layout">
@@ -14,7 +14,7 @@
 					<span v-show="!globalStore.isCollapse" style="color: var(--el-aside-logo-text-color)">Vue+vite+ts</span>
 				</div>
 				<el-scrollbar>
-					<el-menu :collapse="globalStore.isCollapse" :default-active="activeName">
+					<el-menu :router="false" :collapse="globalStore.isCollapse" :collapse-transition="false" :default-active="activeName">
 						<NavMenu :menuList="menuList" />
 					</el-menu>
 				</el-scrollbar>
@@ -41,9 +41,8 @@ import { userPermissionStore } from '@/store/modules/permission';
 const globalStore = userGlobalStore();
 const permissionStore = userPermissionStore();
 const route = useRoute();
-console.log('permissionStore', permissionStore.showMenuList);
 const menuList = computed(() => permissionStore.showMenuList);
-const activeName = computed(() => (route.meta.activeName ? route.meta.activeName : route.path));
+const activeName = computed(() => route.path);
 </script>
 <style lang="scss" scoped>
 @import './index.scss';

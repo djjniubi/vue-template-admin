@@ -49,6 +49,46 @@
 	@include flex-layout(row, center, space-between);
 }
 
+// 纵向布局
+.flex-col-top-start {
+	@include flex-layout(column, flex-start, flex-start);
+}
+
+.flex-col-top-center {
+	@include flex-layout(column, flex-start, center);
+}
+
+.flex-col-top-end {
+	@include flex-layout(column, flex-start, flex-end);
+}
+
+.flex-col-center-start {
+	@include flex-layout(column, center, flex-start);
+}
+
+.flex-col-center-center {
+	@include flex-layout(column, center, center);
+}
+
+.flex-col-center-end {
+	@include flex-layout(column, center, flex-end);
+}
+
+.flex-col-bottom-start {
+	@include flex-layout(column, flex-end, flex-start);
+}
+
+.flex-col-bottom-center {
+	@include flex-layout(column, flex-end, center);
+}
+
+.flex-col-bottom-end {
+	@include flex-layout(column, flex-end, flex-end);
+}
+
+.flex-col-center-between {
+	@include flex-layout(column, center, space-between);
+}
 // 外边距/内边距
 @for $i from 0 through 100 {
 	.mt-#{$i} {

@@ -1,3 +1,10 @@
+<!--
+ * @Author: 前端菜鸟--邓建军
+ * @Date: 2024-05-21 19:03:50
+ * @FilePath: \vue-template-admin\template\template-admin-vue3\src\layouts\components\Header\components\InfoDialog.vue
+ * @LastEditors: mydjj
+ * @LastEditTime: 2024-05-21 22:54:59
+-->
 <template>
 	<el-dialog v-model="dialogVisible" title="个人信息" width="500" @close="closeDialog">
 		<el-row :gutter="20">

@@ -8,8 +8,7 @@
 
 	.el-aside {
 		width: auto;
-
-		// background-color: #fff;
+		background-color: var(--el-menu-bg-color);
 		border-right: 1px solid #e4e7ed;
 	}
 
@@ -31,6 +30,10 @@
 
 		.login {
 			height: 55px;
+
+			.show-title {
+				color: var(--el-aside-logo-text-color);
+			}
 		}
 	}
 
@@ -39,5 +42,10 @@
 		height: 55px;
 		padding: 0 15px;
 		border-bottom: 1px solid #e4e7ed;
+	}
+
+	.main-box {
+		display: flex;
+		flex-direction: column;
 	}
 }

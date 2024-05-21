@@ -4,6 +4,7 @@
 	flex-wrap: wrap;
 
 	.layout-item {
+		box-sizing: border-box;
 		position: relative;
 		width: 100px;
 		height: 70px;

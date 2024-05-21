@@ -3,7 +3,7 @@
  * @Date: 2024-02-28 08:53:17
  * @FilePath: \template-admin-vue3\src\layouts\ClassicalLayout\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-19 14:25:49
+ * @LastEditTime: 2024-04-20 15:25:12
 -->
 <template>
 	<el-container>
@@ -11,7 +11,7 @@
 			<div class="flex-row-center-start">
 				<div class="flex-row-center-center login mr-15">
 					<img src="@/assets/images/vue.svg" alt="log" style="margin-right: 6px" />
-					<span style="color: var(--el-aside-logo-text-color)">Vue+vite+ts</span>
+					<span class="show-title">{{ title }}</span>
 				</div>
 				<ToolBarLeft />
 			</div>
@@ -29,7 +29,9 @@
 					</el-scrollbar>
 				</div>
 			</el-aside>
-			<Main />
+			<el-container class="main-box">
+				<Main />
+			</el-container>
 		</el-container>
 	</el-container>
 </template>
@@ -43,6 +45,7 @@ import Main from '../components/Main/Main.vue';
 import { userPermissionStore } from '@/store/modules/permission';
 import { userGlobalStore } from '@/store/modules/global';
 import { useRoute } from 'vue-router';
+const title = import.meta.env.VITE_TITLE;
 const globalStore = userGlobalStore();
 const permissionStore = userPermissionStore();
 const route = useRoute();

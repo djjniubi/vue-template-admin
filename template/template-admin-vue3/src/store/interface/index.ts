@@ -3,7 +3,7 @@
  * @Date: 2024-02-22 11:15:50
  * @FilePath: \template-admin-vue3\src\store\interface\index.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-31 00:22:04
+ * @LastEditTime: 2024-04-21 00:17:29
  */
 
 export type LayoutType = 'vertical' | 'classical';
@@ -34,12 +34,15 @@ export interface GlobalState {
 	isDark: boolean;
 	layout: LayoutType;
 	primary: string;
+	isMenuType: boolean;
 	isColorWeakness: boolean;
 	isGray: boolean;
 	isBreadcrumb: boolean;
 	isBreadcrumbIcon: boolean;
 	isTabBar: boolean;
 	isTabBarIcon: boolean;
+	isBreadcrumbNav: boolean;
+	sideInversion: boolean;
 }
 
 // 标签导航栏所需要的属性值

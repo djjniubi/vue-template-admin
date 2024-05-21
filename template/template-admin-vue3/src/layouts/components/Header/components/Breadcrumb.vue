@@ -3,31 +3,37 @@
  * @Date: 2024-03-04 16:26:44
  * @FilePath: \template-admin-vue3\src\layouts\components\Header\components\Breadcrumb.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-31 16:00:49
+ * @LastEditTime: 2024-04-11 13:19:36
 -->
 <template>
 	<div class="ml-10 breadcrumb-box">
 		<el-breadcrumb separator="/">
 			<transition-group name="breadcrumb">
 				<el-breadcrumb-item v-for="(item, index) in breadcrumbList" :key="item.path">
-					<div class="breadcrumb-item" v-if="!item.children" @click="breadcrumbClick(item, index)">
+					<div class="breadcrumb-item" v-if="!globalStore.isBreadcrumbNav">
 						<el-icon v-if="globalStore.isBreadcrumbIcon" class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
 						<span>{{ item.meta.title }}</span>
 					</div>
-					<el-dropdown trigger="hover" v-else>
-						<a>
-							<div class="breadcrumb-item">
-								<el-icon v-if="globalStore.isBreadcrumbIcon" class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
-								<span class="mr-6">{{ item.meta.title }}</span>
-								<el-icon><ArrowDown /></el-icon>
-							</div>
-						</a>
-						<template #dropdown>
-							<el-dropdown-menu>
-								<el-dropdown-item :icon="menuItem.meta.icon" v-for="menuItem in item.children" :key="menuItem.path" @click="router.push(menuItem.path)">{{ menuItem.meta.title }}</el-dropdown-item>
-							</el-dropdown-menu>
-						</template>
-					</el-dropdown>
+					<div v-else>
+						<div class="breadcrumb-item" v-if="!item.children" @click="breadcrumbClick(item, index)">
+							<el-icon v-if="globalStore.isBreadcrumbIcon" class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
+							<span>{{ item.meta.title }}</span>
+						</div>
+						<el-dropdown trigger="hover" v-else>
+							<a>
+								<div class="breadcrumb-item">
+									<el-icon v-if="globalStore.isBreadcrumbIcon" class="mr-6" size="16"><component :is="item.meta.icon"></component></el-icon>
+									<span class="mr-6">{{ item.meta.title }}</span>
+									<el-icon><ArrowDown /></el-icon>
+								</div>
+							</a>
+							<template #dropdown>
+								<el-dropdown-menu>
+									<el-dropdown-item :icon="menuItem.meta.icon" v-for="menuItem in item.children" :key="menuItem.path" @click="router.push(menuItem.path)">{{ menuItem.meta.title }}</el-dropdown-item>
+								</el-dropdown-menu>
+							</template>
+						</el-dropdown>
+					</div>
 				</el-breadcrumb-item>
 			</transition-group>
 		</el-breadcrumb>

@@ -3,10 +3,10 @@
  * @Date: 2024-02-28 10:33:28
  * @FilePath: \template-admin-vue3\src\layouts\components\ThemeDrawer\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-31 00:29:14
+ * @LastEditTime: 2024-04-21 18:13:17
 -->
 <template>
-	<el-drawer v-model="drawer" size="280">
+	<el-drawer v-model="drawer" size="285">
 		<el-divider>
 			<el-icon><House /></el-icon>
 			布局样式
@@ -33,19 +33,23 @@
 				</div>
 			</el-tooltip>
 		</div>
+		<div class="theme-item mb-10 flex-row-center-between">
+			<span>侧边栏反转色</span>
+			<el-switch v-model="globalStore.sideInversion" @change="setMenuStyle" />
+		</div>
 		<el-divider>
 			<el-icon><MagicStick /></el-icon>
 			主题颜色
 		</el-divider>
-		<div class="theme-item">
+		<div class="theme-item flex-row-center-between">
 			<span>主题颜色</span>
 			<el-color-picker v-model="globalStore.primary" :predefine="colorList" @change="changePrimary" />
 		</div>
-		<div class="theme-item">
+		<div class="theme-item flex-row-center-between">
 			<span>灰色模式</span>
 			<el-switch v-model="globalStore.isGray" @change="grayAndWeakColor('gray', !!$event)" />
 		</div>
-		<div class="theme-item mb40">
+		<div class="theme-item mb40 flex-row-center-between">
 			<span>色弱模式</span>
 			<el-switch v-model="globalStore.isColorWeakness" @change="grayAndWeakColor('colorWeakness', !!$event)" />
 		</div>
@@ -53,23 +57,31 @@
 			<el-icon><Setting /></el-icon>
 			界面设置
 		</el-divider>
-		<div class="theme-item mb40">
+		<div class="theme-item mb-10 flex-row-center-between">
+			<span>经典菜单</span>
+			<el-switch v-model="globalStore.isMenuType" @change="setMenuStyle" />
+		</div>
+		<div class="theme-item mb-10 flex-row-center-between">
 			<span>折叠菜单</span>
 			<el-switch v-model="globalStore.isCollapse" />
 		</div>
-		<div class="theme-item mb40">
+		<div class="theme-item mb-10 flex-row-center-between">
 			<span>面包屑</span>
 			<el-switch v-model="globalStore.isBreadcrumb" />
 		</div>
-		<div class="theme-item mb40">
+		<div class="theme-item mb-10 flex-row-center-between">
+			<span>面包屑导航模式</span>
+			<el-switch v-model="globalStore.isBreadcrumbNav" />
+		</div>
+		<div class="theme-item mb-10 flex-row-center-between">
 			<span>面包屑图标</span>
 			<el-switch v-model="globalStore.isBreadcrumbIcon" />
 		</div>
-		<div class="theme-item mb40">
+		<div class="theme-item mb-10 flex-row-center-between">
 			<span>标签栏</span>
 			<el-switch v-model="globalStore.isTabBar" />
 		</div>
-		<div class="theme-item mb40">
+		<div class="theme-item mb-10 flex-row-center-between">
 			<span>标签栏图标</span>
 			<el-switch v-model="globalStore.isTabBarIcon" />
 		</div>
@@ -84,7 +96,7 @@ const globalStore = userGlobalStore();
 const layout = computed(() => globalStore.layout);
 const drawer = ref(false);
 mittBus.on('openDrawer', () => (drawer.value = true));
-const { changePrimary, grayAndWeakColor } = useTheme();
+const { changePrimary, grayAndWeakColor, setMenuStyle } = useTheme();
 const setLayout = (item: string) => {
 	globalStore.setGlobalStoreConfig('layout', item);
 };

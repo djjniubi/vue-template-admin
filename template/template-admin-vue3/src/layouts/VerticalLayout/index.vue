@@ -3,7 +3,7 @@
  * @Date: 2024-02-22 09:35:43
  * @FilePath: \template-admin-vue3\src\layouts\VerticalLayout\index.vue
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-30 16:27:22
+ * @LastEditTime: 2024-04-11 12:57:41
 -->
 <template>
 	<el-container class="layout">
@@ -11,7 +11,7 @@
 			<div class="aside-box" :style="{ width: globalStore.isCollapse ? '65px' : '254px' }">
 				<div class="flex-row-center-center login">
 					<img src="@/assets/images/vue.svg" alt="log" style="margin-right: 6px" />
-					<span v-show="!globalStore.isCollapse" style="color: var(--el-aside-logo-text-color)">Vue+vite+ts</span>
+					<span v-show="!globalStore.isCollapse" class="show-title">{{ title }}</span>
 				</div>
 				<el-scrollbar>
 					<el-menu :router="false" :collapse="globalStore.isCollapse" :collapse-transition="false" :default-active="activeName">
@@ -38,6 +38,7 @@ import ToolBarRight from '../components/Header/ToolBarRight.vue';
 import Main from '../components/Main/Main.vue';
 import { userGlobalStore } from '@/store/modules/global';
 import { userPermissionStore } from '@/store/modules/permission';
+const title = import.meta.env.VITE_TITLE;
 const globalStore = userGlobalStore();
 const permissionStore = userPermissionStore();
 const route = useRoute();

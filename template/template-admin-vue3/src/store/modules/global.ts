@@ -3,7 +3,7 @@
  * @Date: 2024-02-26 09:56:57
  * @FilePath: \template-admin-vue3\src\store\modules\global.ts
  * @LastEditors: mydjj
- * @LastEditTime: 2024-03-31 00:23:20
+ * @LastEditTime: 2024-04-21 02:43:22
  */
 import { defineStore } from 'pinia';
 import { GlobalState } from '../interface/index';
@@ -22,14 +22,20 @@ export const userGlobalStore = defineStore({
 		layout: 'vertical',
 		//全局颜色
 		primary: '#409eff',
+		//侧边栏反转色
+		sideInversion: false,
 		//灰色模式
 		isGray: false,
 		//色弱模式
 		isColorWeakness: false,
+		//是否启用经典菜单样式
+		isMenuType: false,
 		//是否显示面包屑导航
 		isBreadcrumb: true,
 		//是否显示面包屑图标
 		isBreadcrumbIcon: true,
+		//是否启用面包屑导航模式
+		isBreadcrumbNav: true,
 		//是否显示标签栏
 		isTabBar: true,
 		//是否显示标签栏图标

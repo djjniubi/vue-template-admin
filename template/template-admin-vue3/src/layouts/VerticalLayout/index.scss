@@ -8,6 +8,7 @@
 
 	.el-aside {
 		width: auto;
+		background-color: var(--el-menu-bg-color);
 
 		// background-color: #fff;
 		border-right: 1px solid #e4e7ed;
@@ -31,6 +32,10 @@
 
 		.login {
 			height: 55px;
+
+			.show-title {
+				color: var(--el-aside-logo-text-color);
+			}
 		}
 	}
 
